@@ -1,14 +1,8 @@
-import { searchCover } from "../api/covers";
-
 export const BookCard = ({ book }: any) => {
   return (
-    <button className="border shadow-xl transition-all hover:scale-105 card h-[16.8rem] border-base-300 bg-base-100">
+    <button className="w-48 h-72 border shadow-xl transition-all hover:scale-105 card border-base-300 bg-base-100">
       <figure>
-        <img
-          src={searchCover(book, "M")}
-          alt="book cover"
-          className="object-cover"
-        />
+        <img src={book.cover} alt={book.title} className="object-cover" />
       </figure>
     </button>
   );

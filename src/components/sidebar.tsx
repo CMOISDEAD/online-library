@@ -9,37 +9,39 @@ import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
   return (
-    <div className="flex overflow-y-auto flex-col gap-4 justify-between content-center items-center py-5 w-12 h-screen bg-base-200">
-      <ul className="flex flex-col gap-4 justify-center content-center items-center">
-        <li className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100">
-          <Link to="/">
+    <div className="flex overflow-y-auto sticky top-0 flex-col gap-4 justify-between content-center items-center py-5 w-12 h-screen bg-base-200">
+      <div className="flex flex-col gap-4 justify-center content-center items-center">
+        <Link to="/">
+          <div className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100">
             <PiBooksBold />
-          </Link>
-        </li>
-        <li className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100">
-          <Link to="/bookmarks">
+          </div>
+        </Link>
+        <Link to="/bookmarks">
+          <div className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100">
             <PiBookmarkSimpleBold />
-          </Link>
-        </li>
-        <li className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100">
-          <Link to="/">
+          </div>
+        </Link>
+        <Link to="/">
+          <div className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100">
             <PiLightningBold />
-          </Link>
-        </li>
-      </ul>
+          </div>
+        </Link>
+      </div>
 
-      <ul className="flex flex-col gap-4 justify-center content-center items-center">
-        <li className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100">
-          <a href="https://github.com/CMOISDEAD/online-library" target="_blank">
-            <PiGithubLogo />
-          </a>
-        </li>
-        <li className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100">
-          <Link to="/settings">
+      <div className="flex flex-col gap-4 justify-center content-center items-center">
+        <a
+          href="https://github.com/CMOISDEAD/online-library"
+          target="_blank"
+          className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100"
+        >
+          <PiGithubLogo />
+        </a>
+        <Link to="/settings">
+          <div className="p-2 rounded transition-colors hover:cursor-pointer hover:bg-base-100">
             <PiUserGear />
-          </Link>
-        </li>
-      </ul>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
