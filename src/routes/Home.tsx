@@ -1,20 +1,16 @@
 import { useEffect, useState } from "react";
 import { Banner } from "../components/Banner";
 import { BookList } from "../components/BooksList";
-import axios from "axios";
+import { getAllBooks } from "../api/book";
 
 function Home() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/book")
-      .then(({ data }) => {
-        setBooks(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    (async () => {
+      const data = await getAllBooks();
+      setBooks(data);
+    })();
   }, []);
 
   return (
