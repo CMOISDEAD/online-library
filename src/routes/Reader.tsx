@@ -24,7 +24,7 @@ export const Reader = () => {
   };
 
   return (
-    <div className="my-2 flex w-full flex-grow flex-col content-center items-center gap-2">
+    <div className="relative my-2 flex w-full flex-grow flex-col content-center items-center gap-2">
       <Document
         file={`http://localhost:3000/pdf/${id}`}
         onLoadSuccess={handleSuccess}

@@ -3,8 +3,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.fade-in-out {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out; /* Puedes ajustar la duración y la función de temporización según tus preferencias */
-}
