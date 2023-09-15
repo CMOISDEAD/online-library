@@ -6,6 +6,7 @@ import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 import { Pager } from "../components/reader/Pager";
 import { Toc } from "../components/reader/Toc";
+import { Loader } from "../components/reader/Loader";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
@@ -26,9 +27,10 @@ export const Reader = () => {
   return (
     <div className="relative my-2 flex w-full flex-grow flex-col content-center items-center gap-2">
       <Document
-        file={`http://localhost:3000/pdf/${id}`}
         onLoadSuccess={handleSuccess}
+        file={`http://localhost:3000/pdf/${id}`}
         className="flex h-[98vh] w-full gap-4 overflow-hidden"
+        loading={<Loader />}
       >
         <Toc pdf={pdf} setPdf={setPdf} />
         <div className="relative flex flex-grow content-center items-center justify-center rounded-md bg-base-200">
