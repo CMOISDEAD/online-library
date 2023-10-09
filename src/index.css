@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   @apply w-2;
 }
 ::-webkit-scrollbar-thumb {
@@ -12,4 +12,4 @@
 }
 ::-webkit-scrollbar-track {
   @apply bg-primary-focus;
-}
+} */

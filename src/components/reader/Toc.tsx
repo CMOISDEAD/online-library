@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Outline } from "react-pdf";
-import { PiSidebar } from "react-icons/pi";
+import { PiArrowsOut, PiSidebar } from "react-icons/pi";
+import { Card, CardBody, CardHeader, ScrollShadow } from "@nextui-org/react";
 
 export const Toc = ({ pdf, setPdf }: any) => {
   const [toggle, setToggle] = useState(true);
@@ -16,29 +17,42 @@ export const Toc = ({ pdf, setPdf }: any) => {
   return (
     <>
       <button
-        className={`absolute left-1 top-1 z-50 rounded p-2 transition-colors hover:bg-base-100 ${
+        className={`absolute left-1 top-1 z-50 rounded p-2 transition-colors hover:bg-primary ${
           toggle ? "hidden" : "block"
         }`}
         onClick={handleToggle}
       >
         <PiSidebar className="text-xl" />
       </button>
-      <div
-        className={`relative hidden w-4/12 overflow-auto rounded-md bg-base-200 transition-opacity md:block ${
-          toggle ? "md:block" : "md:hidden"
-        }`}
+      <Card
+        radius="md"
+        isBlurred
+        className={`border border-divider ${toggle ? "block" : "hidden"}`}
+        isPressable
       >
-        <div className="content-ceter sticky top-0 flex w-full items-center justify-between bg-base-300/80 p-2 backdrop-blur-sm">
+        <CardHeader className="justify-between">
           <h1 className="text-2xl font-bold">Content</h1>
-          <button
-            className="rounded p-2 transition-colors hover:bg-base-100"
-            onClick={handleToggle}
-          >
-            <PiSidebar className="text-xl" />
-          </button>
-        </div>
-        <Outline onItemClick={handleClick} className="p-3" />
-      </div>
+          <div className="flex gap-2">
+            <a
+              className="rounded p-2 transition-colors hover:bg-focus/80"
+              href="#reader"
+            >
+              <PiArrowsOut className="text-xl" />
+            </a>
+            <button
+              className="rounded p-2 transition-colors hover:bg-focus/80"
+              onClick={handleToggle}
+            >
+              <PiSidebar className="text-xl" />
+            </button>
+          </div>
+        </CardHeader>
+        <CardBody>
+          <ScrollShadow>
+            <Outline onItemClick={handleClick} />
+          </ScrollShadow>
+        </CardBody>
+      </Card>
     </>
   );
 };

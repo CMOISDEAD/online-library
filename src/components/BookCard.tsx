@@ -1,16 +1,18 @@
+import { Image } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
 export const BookCard = ({ book }: any) => {
   return (
     <Link to={`/reader/${book.id}`}>
-      <button className="card h-72 w-48 rounded-md border border-base-300 bg-base-100 shadow-md transition-all hover:scale-105 hover:border-primary hover:shadow-primary">
-        <figure>
-          <img
-            src={book.cover}
-            alt={book.title}
-            className="rounded-md object-cover"
-          />
-        </figure>
+      <button className="h-72 w-48 rounded-md border border-divider shadow-md transition-all hover:scale-105 hover:border-focus hover:shadow-primary">
+        <Image
+          isBlurred
+          radius="md"
+          loading="lazy"
+          src={book.cover}
+          alt={book.title}
+          className="h-72 w-48 object-cover"
+        />
       </button>
     </Link>
   );

@@ -18,11 +18,14 @@ export const Viewer = () => {
   const [pdf, setPdf] = useState({
     currentPage: 1,
     pages: 0,
-    zoom: 80,
+    zoom: 85,
+    toc: [],
   });
 
-  const handleSuccess = (document: any) => {
-    setPdf({ ...pdf, pages: document.numPages, currentPage: 1 });
+  const handleSuccess = async (document: any) => {
+    const table = await document.getOutline();
+    const toc = table[0].items.flat(Infinity);
+    setPdf({ ...pdf, pages: document.numPages, currentPage: 1, toc });
   };
 
   return (
@@ -33,12 +36,12 @@ export const Viewer = () => {
       loading={<Loader />}
     >
       <Toc pdf={pdf} setPdf={setPdf} />
-      <div className="relative flex flex-grow content-center items-center justify-center rounded-md bg-base-200">
+      <div className="bg-base-200 relative flex flex-grow content-center items-center justify-center rounded-md">
         <Page
-          scale={pdf.zoom / 100}
+          scale={(pdf.zoom - 2.8) / 100}
           pageNumber={pdf.currentPage}
-          className="h-full overflow-auto"
-          renderAnnotationLayer={false}
+          className="h-fit max-h-full overflow-auto"
+          renderAnnotationLayer={true}
         />
         <Toolbar pdf={pdf} setPdf={setPdf} />
       </div>

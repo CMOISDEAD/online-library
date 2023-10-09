@@ -1,5 +1,5 @@
 import { PiMinus, PiPlus } from "react-icons/pi";
-import { Button } from "../Button";
+import { Card, Button } from "@nextui-org/react";
 
 export const Zoom = ({ pdf, setPdf }: any) => {
   const { zoom } = pdf;
@@ -18,19 +18,23 @@ export const Zoom = ({ pdf, setPdf }: any) => {
   };
 
   return (
-    <div className="flex content-center items-center justify-center gap-4 rounded bg-base-200/80 p-2 backdrop-blur-sm">
-      <Button onClick={handleZoomOut}>
+    <Card
+      isBlurred
+      radius="md"
+      className="flex flex-row content-center items-center justify-between gap-4 border border-divider"
+    >
+      <Button onClick={handleZoomOut} variant="light" radius="md">
         <PiMinus />
       </Button>
       <span
         onClick={handleZoomReset}
-        className="hidden cursor-pointer rounded px-2 py-1 hover:bg-base-100 lg:block"
+        className="hidden cursor-pointer rounded px-2 py-1 hover:bg-content1 lg:block"
       >
         {pdf.zoom}%
       </span>
-      <Button onClick={handleZoomIn}>
+      <Button onClick={handleZoomIn} variant="light" radius="md">
         <PiPlus />
       </Button>
-    </div>
+    </Card>
   );
 };

@@ -1,4 +1,5 @@
-import { Button } from "../Button";
+import { Button, Card } from "@nextui-org/react";
+import { PiArrowLeft, PiArrowRight } from "react-icons/pi";
 
 interface PagerProps {
   pdf: any;
@@ -17,16 +18,29 @@ export const Pager = ({ pdf, setPdf }: PagerProps) => {
   };
 
   return (
-    <div className="mx-auto flex content-center items-center justify-center gap-4 rounded bg-base-200/80 p-2 backdrop-blur-sm">
-      <Button onClick={handlePrev} disabled={pdf.currentPage <= 1}>
-        Prev
+    <Card
+      radius="md"
+      className="flex flex-row content-center items-center justify-between gap-4 border border-divider bg-background/80 backdrop-blur-sm"
+    >
+      <Button
+        onClick={handlePrev}
+        isDisabled={pdf.currentPage <= 1}
+        variant="light"
+        radius="md"
+      >
+        <PiArrowLeft />
       </Button>
-      <span>
+      <span className="font-bold">
         {pdf.currentPage} / {pdf.pages}
       </span>
-      <Button onClick={handleNext} disabled={pdf.currentPage >= pdf.pages}>
-        Next
+      <Button
+        onClick={handleNext}
+        isDisabled={pdf.currentPage >= pdf.pages}
+        variant="light"
+        radius="md"
+      >
+        <PiArrowRight />
       </Button>
-    </div>
+    </Card>
   );
 };

@@ -1,13 +1,11 @@
-import { AuthorsSection } from "../components/AuthorsSection";
-import { Banner } from "../components/Banner";
 import { BooksSection } from "../components/BooksSection";
+// import { AuthorsSection } from "../components/AuthorsSection";
 
 function Home() {
   return (
     <div>
-      <Banner />
       <BooksSection />
-      <AuthorsSection />
+      {/* <AuthorsSection /> */}
     </div>
   );
 }
