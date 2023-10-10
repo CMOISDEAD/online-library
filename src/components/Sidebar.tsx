@@ -16,7 +16,7 @@ const routes = [
     icon: <PiBookmarkSimpleBold />,
   },
   {
-    to: "/books",
+    to: "/dashboard",
     icon: <PiLightningBold />,
   },
 ];

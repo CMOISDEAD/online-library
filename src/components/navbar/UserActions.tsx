@@ -6,9 +6,10 @@ import {
   DropdownTrigger,
   useDisclosure,
 } from "@nextui-org/react";
+import { Setting } from "./Settings";
 import { LogoutModal } from "./Logout";
 import useLibraryStore from "../../store/store";
-import { Setting } from "./Settings";
+import { Profile } from "./Profile";
 
 export const UserActions = () => {
   const {
@@ -20,6 +21,11 @@ export const UserActions = () => {
     isOpen: isLogoutOpen,
     onOpen: onLogoutOpen,
     onOpenChange: onLogoutOpenChange,
+  } = useDisclosure();
+  const {
+    isOpen: isProfileOpen,
+    onOpen: onProfileOpen,
+    onOpenChange: onProfileOpenChange,
   } = useDisclosure();
   const user = useLibraryStore((state) => state.user);
 
@@ -34,7 +40,7 @@ export const UserActions = () => {
             color="primary"
             name={user.username}
             size="sm"
-            src={user.image}
+            src={user.photo}
             as="button"
           />
         </DropdownTrigger>
@@ -47,8 +53,12 @@ export const UserActions = () => {
             <p className="font-semibold">Signed in as</p>
             <p className="font-semibold">{user.email}</p>
           </DropdownItem>
-          <DropdownItem key="settings" textValue="My Setting">
-            My Settings
+          <DropdownItem
+            key="settings"
+            textValue="My Setting"
+            onClick={onProfileOpen}
+          >
+            My Profile
           </DropdownItem>
           <DropdownItem key="analytics" textValue="Analytics">
             Analytics
@@ -75,6 +85,7 @@ export const UserActions = () => {
       </Dropdown>
       <Setting isOpen={isSettingsOpen} onOpenChange={onSettingsOpenChange} />
       <LogoutModal isOpen={isLogoutOpen} onOpenChange={onLogoutOpenChange} />
+      <Profile isOpen={isProfileOpen} onOpenChange={onProfileOpenChange} />
     </>
   );
 };

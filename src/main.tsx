@@ -8,6 +8,7 @@ import { Login } from "./routes/Login";
 import { Toaster } from "react-hot-toast";
 import { Register } from "./routes/Register";
 import { Providers } from "./components/Providers";
+import { Dashboard } from "./routes/Dashboard";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/reader/:id",
         element: <Reader />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
       },
     ],
   },

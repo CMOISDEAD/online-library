@@ -27,7 +27,9 @@ export const Toc = ({ pdf, setPdf }: any) => {
       <Card
         radius="md"
         isBlurred
-        className={`border border-divider ${toggle ? "block" : "hidden"}`}
+        className={`max-w-md overflow-auto border border-divider ${
+          toggle ? "block" : "hidden"
+        }`}
         isPressable
       >
         <CardHeader className="justify-between">

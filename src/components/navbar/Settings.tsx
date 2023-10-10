@@ -34,6 +34,7 @@ export const Setting = ({ isOpen, onOpenChange }: any) => {
               <Switch isSelected={isSelected} onValueChange={setIsSelected}>
                 Toggle Membership
               </Switch>
+              <Switch>Toggle Admin</Switch>
             </ModalBody>
             <ModalFooter>
               <Button color="primary" variant="light" onPress={onClose}>
