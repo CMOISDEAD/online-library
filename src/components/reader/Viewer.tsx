@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Document, Page } from "react-pdf";
 import { pdfjs } from "react-pdf";
 import { Toc } from "./Toc";
 import { Loader } from "./Loader";
 import { Toolbar } from "./Toolbar";
+import useLibraryStore from "../../store/store";
+import { addRecent } from "../../api/user";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
@@ -21,10 +23,19 @@ export const Viewer = () => {
     zoom: 85,
     toc: [],
   });
+  const user = useLibraryStore((state) => state.user);
+
+  useEffect(() => {
+    if (!user.membership) return;
+    (async () => {
+      if (!user.id || !id) return;
+      await addRecent({ userId: user.id, bookId: id });
+    })();
+  }, []);
 
   const handleSuccess = async (document: any) => {
     const table = await document.getOutline();
-    const toc = table[0].items.flat(Infinity);
+    const toc = table[0].items.flat(Infinity); // im using this ?
     setPdf({ ...pdf, pages: document.numPages, currentPage: 1, toc });
   };
 

@@ -59,7 +59,7 @@ export const Register = () => {
           isBlurred
           className=" w-full object-cover"
           alt="Card background"
-          src="https://nextui.org/images/card-example-6.jpeg"
+          src="https://images.unsplash.com/photo-1578301978162-7aae4d755744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNsYXNzaWMlMjBhcnR8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
         />
       </div>
       <Card
@@ -133,6 +133,7 @@ export const Register = () => {
                 type={passwordView ? "text" : "password"}
                 label="Password"
                 variant="bordered"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 color={errors.password ? "danger" : "primary"}
                 errorMessage={
                   errors.password && "Please fill the password field"

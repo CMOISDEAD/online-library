@@ -52,3 +52,13 @@ export const updatePhoto = async ({ id, photo }: any) => {
     console.error(error);
   }
 };
+
+export const buyMembership = async (id: string) => {
+  try {
+    const user = await auth.post("/buyMembership", { id });
+    window.localStorage.setItem("user", JSON.stringify(user.data));
+    useLibraryStore.setState({ user: user.data });
+  } catch (error) {
+    console.error(error);
+  }
+};

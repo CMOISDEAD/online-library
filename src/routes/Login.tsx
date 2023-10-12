@@ -61,7 +61,7 @@ export const Login = () => {
           isBlurred
           className=" w-full object-cover"
           alt="Card background"
-          src="https://nextui.org/images/card-example-6.jpeg"
+          src="https://wallpapercave.com/wp/wp3768313.jpg"
         />
       </div>
       <Card

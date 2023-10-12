@@ -4,15 +4,20 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Navigation } from "./navbar/Navbar";
 import { useEffect } from "react";
 import useLibraryStore from "../store/store";
+import { getUser } from "../api/user";
 
 export const Root = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (!user) return navigate("/login");
-    useLibraryStore.setState({ user: JSON.parse(user) });
-  }, []);
+    (async () => {
+      const staged = JSON.parse(window.localStorage.getItem("user") || "null");
+      if (!staged) return navigate("/login");
+      const user = await getUser(staged.id);
+      useLibraryStore.setState({ user: user });
+      window.localStorage.setItem("user", JSON.stringify(user));
+    })();
+  });
 
   return (
     <div className="flex h-full w-full">

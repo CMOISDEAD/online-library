@@ -1,43 +1,49 @@
 import { NavLink } from "react-router-dom";
 import {
-  PiBookmarkSimpleBold,
-  PiBooksBold,
+  PiBooks,
+  PiLightning,
   PiGithubLogo,
-  PiLightningBold,
+  PiBookmarkSimple,
 } from "react-icons/pi";
-
-const routes = [
-  {
-    to: "/",
-    icon: <PiBooksBold />,
-  },
-  {
-    to: "/bookmarks",
-    icon: <PiBookmarkSimpleBold />,
-  },
-  {
-    to: "/dashboard",
-    icon: <PiLightningBold />,
-  },
-];
-
+import useLibraryStore from "../store/store";
 export const Sidebar = () => {
+  const user = useLibraryStore((state) => state.user);
+
   return (
     <div className="sticky top-0 flex h-screen w-12 flex-col content-center items-center justify-between gap-4 overflow-y-auto border-r border-divider bg-background py-5">
       <div className="flex flex-col content-center items-center justify-center gap-4">
-        {routes.map(({ to, icon }, i) => (
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `${
+              isActive ? "bg-primary/80" : "rounded p-2 transition-colors "
+            } rounded p-2 transition-colors hover:cursor-pointer hover:bg-focus`
+          }
+        >
+          <PiBooks />
+        </NavLink>
+        <NavLink
+          to="/bookmarks"
+          className={({ isActive }) =>
+            `${
+              isActive ? "bg-primary/80" : "rounded p-2 transition-colors "
+            } rounded p-2 transition-colors hover:cursor-pointer hover:bg-focus`
+          }
+        >
+          <PiBookmarkSimple />
+        </NavLink>
+        {user.role === "admin" && (
           <NavLink
-            to={to}
+            to="/dashboard"
             className={({ isActive }) =>
               `${
                 isActive ? "bg-primary/80" : "rounded p-2 transition-colors "
               } rounded p-2 transition-colors hover:cursor-pointer hover:bg-focus`
             }
-            key={i}
           >
-            {icon}
+            <PiLightning />
           </NavLink>
-        ))}
+        )}
       </div>
 
       <div className="flex flex-col content-center items-center justify-center gap-4">

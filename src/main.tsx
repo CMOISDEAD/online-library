@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Root } from "./components/Root";
@@ -10,6 +9,7 @@ import { Register } from "./routes/Register";
 import { Providers } from "./components/Providers";
 import { Dashboard } from "./routes/Dashboard";
 import "./index.css";
+import { Billing } from "./routes/Billing";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard />,
       },
+      {
+        path: "/billing",
+        element: <Billing />,
+      },
     ],
   },
   {
@@ -41,10 +45,8 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <Providers>
-      <RouterProvider router={router} />
-      <Toaster position="bottom-right" />
-    </Providers>
-  </React.StrictMode>,
+  <Providers>
+    <RouterProvider router={router} />
+    <Toaster position="bottom-right" />
+  </Providers>,
 );

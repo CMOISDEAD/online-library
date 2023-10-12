@@ -5,6 +5,7 @@ import {
   Modal,
   ModalBody,
   ModalContent,
+  ModalFooter,
   ModalHeader,
 } from "@nextui-org/react";
 import { notify } from "../../utils/notify";
@@ -58,12 +59,24 @@ export const Profile = ({ isOpen, onOpenChange }: any) => {
             onSubmit={handleProfilePic}
             className="flex content-center items-center justify-evenly gap-4"
           >
-            <input type="file" name="profile" id="profile" accept="image/*" />
+            <input
+              id="profile"
+              name="profile"
+              type="file"
+              accept="image/*"
+              required
+              className="block w-full cursor-pointer rounded-lg border border-divider bg-background text-sm text-gray-400 placeholder-gray-400 transition-all hover:bg-neutral-800 focus:outline-none"
+            />
             <Button color="success" type="submit">
               Update
             </Button>
           </form>
         </ModalBody>
+        <ModalFooter className="flex content-center items-center justify-center">
+          <p className="text-sm text-content4">
+            this view is only for profile settings
+          </p>
+        </ModalFooter>
       </ModalContent>
     </Modal>
   );
