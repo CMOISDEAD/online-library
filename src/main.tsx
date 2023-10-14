@@ -10,6 +10,7 @@ import { Providers } from "./components/Providers";
 import { Dashboard } from "./routes/Dashboard";
 import "./index.css";
 import { Billing } from "./routes/Billing";
+import { Profile } from "./routes/Profile";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/billing",
         element: <Billing />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

@@ -34,25 +34,6 @@ export const authRegister = async (user: any) => {
   }
 };
 
-export const updatePhoto = async ({ id, photo }: any) => {
-  const image = photo;
-  try {
-    const content = new FormData();
-    content.append("file", image);
-    content.append("upload_preset", "library");
-    content.append("cloud_name", "djfou58lo");
-    const { data } = await axios.post(
-      "https://api.cloudinary.com/v1_1/djfou58lo/image/upload",
-      content,
-    );
-    const user = await auth.post("/updatePhoto", { id, photo: data.url });
-    window.localStorage.setItem("user", JSON.stringify(user.data));
-    useLibraryStore.setState({ user: user.data });
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 export const buyMembership = async (id: string) => {
   try {
     const user = await auth.post("/buyMembership", { id });

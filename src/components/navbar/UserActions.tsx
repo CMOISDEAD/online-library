@@ -9,9 +9,11 @@ import {
 import { Setting } from "./Settings";
 import { LogoutModal } from "./Logout";
 import useLibraryStore from "../../store/store";
-import { Profile } from "./Profile";
+import { useNavigate } from "react-router-dom";
 
 export const UserActions = () => {
+  const user = useLibraryStore((state) => state.user);
+  const navigate = useNavigate();
   const {
     isOpen: isSettingsOpen,
     onOpen: onSettingOpen,
@@ -22,12 +24,6 @@ export const UserActions = () => {
     onOpen: onLogoutOpen,
     onOpenChange: onLogoutOpenChange,
   } = useDisclosure();
-  const {
-    isOpen: isProfileOpen,
-    onOpen: onProfileOpen,
-    onOpenChange: onProfileOpenChange,
-  } = useDisclosure();
-  const user = useLibraryStore((state) => state.user);
 
   return (
     <>
@@ -56,7 +52,7 @@ export const UserActions = () => {
           <DropdownItem
             key="settings"
             textValue="My Setting"
-            onClick={onProfileOpen}
+            onClick={() => navigate("/profile")}
           >
             My Profile
           </DropdownItem>
@@ -85,7 +81,6 @@ export const UserActions = () => {
       </Dropdown>
       <Setting isOpen={isSettingsOpen} onOpenChange={onSettingsOpenChange} />
       <LogoutModal isOpen={isLogoutOpen} onOpenChange={onLogoutOpenChange} />
-      <Profile isOpen={isProfileOpen} onOpenChange={onProfileOpenChange} />
     </>
   );
 };

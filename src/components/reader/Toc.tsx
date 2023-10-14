@@ -32,7 +32,7 @@ export const Toc = ({ pdf, setPdf }: any) => {
         }`}
         isPressable
       >
-        <CardHeader className="justify-between">
+        <CardHeader className="sticky top-0 justify-between bg-background/80 backdrop-blur-3xl">
           <h1 className="text-2xl font-bold">Content</h1>
           <div className="flex gap-2">
             <a
