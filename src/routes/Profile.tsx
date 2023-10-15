@@ -4,7 +4,6 @@ import { Chip, Image, Tooltip, useDisclosure } from "@nextui-org/react";
 import useLibraryStore from "../store/store";
 import { Picture } from "../components/profile/Picture";
 import { RecentsSection } from "../components/RecentsSection";
-import { Progress } from "../components/profile/Progress";
 
 export const Profile = () => {
   const user = useLibraryStore((state) => state.user);

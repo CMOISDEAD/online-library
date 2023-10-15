@@ -4,6 +4,7 @@ import { Authors } from "../components/dashboard/Authors";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useLibraryStore from "../store/store";
+import { Category } from "../components/dashboard/Category";
 
 export const Dashboard = () => {
   const user = useLibraryStore((state) => state.user);
@@ -22,7 +23,9 @@ export const Dashboard = () => {
         <Tab key="authors" title="Authors">
           <Authors />
         </Tab>
-        <Tab key="categories" title="Categories"></Tab>
+        <Tab key="categories" title="Categories">
+          <Category />
+        </Tab>
         <Tab key="users" title="Users"></Tab>
       </Tabs>
     </div>

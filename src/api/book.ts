@@ -3,8 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 import instance from "./api";
 
 export const getAllBooks = async () => {
-  const res = await instance.get("book");
-  return res.data;
+  try {
+    const res = await instance.get("book");
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const saveBook = async (book: any) => {
@@ -17,4 +21,13 @@ export const saveBook = async (book: any) => {
   };
   const res = await instance.post("book", book);
   return res.data;
+};
+
+export const removeBook = async (id: string) => {
+  try {
+    const res = await instance.delete(`book/${id}`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
 };

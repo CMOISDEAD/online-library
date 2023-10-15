@@ -25,7 +25,7 @@ export const Authors = () => {
   return (
     <Card isBlurred className="border border-divider">
       <CardHeader>
-        <h1 className="text-3xl font-bold capitalize">Books</h1>
+        <h1 className="text-3xl font-bold capitalize">Authors</h1>
       </CardHeader>
       <CardBody>
         <form
