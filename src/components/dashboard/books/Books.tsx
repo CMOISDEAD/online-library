@@ -6,65 +6,33 @@ import {
   Input,
   Select,
   SelectItem,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-  Tooltip,
 } from "@nextui-org/react";
+import { BooksTable } from "./BooksTable";
 import { useForm } from "react-hook-form";
-import { getAllAuthors } from "../../api/author";
-import { useEffect, useState } from "react";
-import { getAllCategories } from "../../api/category";
-import { getAllBooks, removeBook, saveBook } from "../../api/book";
-import { notify } from "../../utils/notify";
-import { PiEye, PiPencil, PiTrash } from "react-icons/pi";
+import { getAllBooks, saveBook } from "../../../api/book";
+import { notify } from "../../../utils/notify";
+import useLibraryStore from "../../../store/store";
 
 export const Books = () => {
-  const [books, setBooks] = useState([]);
-  const [authors, setAuthors] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const { authors, categories } = useLibraryStore((state) => ({
+    authors: state.authors,
+    categories: state.categories,
+  }));
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        setAuthors(await getAllAuthors());
-        setCategories(await getAllCategories());
-        setBooks(await getAllBooks());
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-  }, []);
-
-  const handleAdd = async (data: any) => {
+  const handleAdd = async (book: any) => {
     try {
-      await saveBook(data);
+      await saveBook(book);
       notify({
         content: "added successfully",
         type: "success",
       });
-      setBooks(await getAllBooks());
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleDelete = async (id: string) => {
-    try {
-      await removeBook(id);
-      notify({
-        content: "removed successfully",
-        type: "success",
-      });
-      setBooks(await getAllBooks());
+      const res = await getAllBooks();
+      useLibraryStore.setState({ books: res });
     } catch (error) {
       console.error(error);
     }
@@ -192,55 +160,7 @@ export const Books = () => {
           </form>
         </CardBody>
       </Card>
-      <Table aria-label="Book list">
-        <TableHeader>
-          <TableColumn>title</TableColumn>
-          <TableColumn>author</TableColumn>
-          <TableColumn>categories</TableColumn>
-          <TableColumn>date</TableColumn>
-          <TableColumn>format</TableColumn>
-          <TableColumn>actions</TableColumn>
-        </TableHeader>
-        <TableBody emptyContent="No books to display.">
-          {books.map((book: any, i) => (
-            <TableRow key={i}>
-              <TableCell>{book.title}</TableCell>
-              <TableCell>
-                {book.author.firstName} {book.author.lastName}
-              </TableCell>
-              <TableCell>
-                {book.categories.map((category: any, i: number) => (
-                  <span key={i}>{category.name}, </span>
-                ))}
-              </TableCell>
-              <TableCell>{book.published}</TableCell>
-              <TableCell>{book.format}</TableCell>
-              <TableCell>
-                <div className="relative flex items-center gap-2">
-                  <Tooltip content="Details">
-                    <span className="cursor-pointer text-lg text-default-400 active:opacity-50">
-                      <PiEye />
-                    </span>
-                  </Tooltip>
-                  <Tooltip content="Edit Book">
-                    <span className="cursor-pointer text-lg text-default-400 active:opacity-50">
-                      <PiPencil />
-                    </span>
-                  </Tooltip>
-                  <Tooltip color="danger" content="Delete Book">
-                    <span
-                      className="cursor-pointer text-lg text-danger active:opacity-50"
-                      onClick={() => handleDelete(book.id)}
-                    >
-                      <PiTrash />
-                    </span>
-                  </Tooltip>
-                </div>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <BooksTable />
     </div>
   );
 };

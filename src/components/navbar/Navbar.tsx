@@ -1,12 +1,14 @@
-import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/react";
+import { Navbar, NavbarContent, NavbarItem, Badge } from "@nextui-org/react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { SearchBar } from "./SearchBar";
+import { Link, NavLink } from "react-router-dom";
 import { UserActions } from "./UserActions";
 import { Toggle } from "./Toggle";
+import { RxBackpack } from "react-icons/rx";
 import { GetMember } from "./GetMember";
+import useLibraryStore from "../../store/store";
 
 export const Navigation = () => {
+  const user = useLibraryStore((state) => state.user);
   const [active, setActive] = useState("");
 
   return (
@@ -36,8 +38,16 @@ export const Navigation = () => {
       </NavbarContent>
       <NavbarContent as="div" className="items-center" justify="end">
         <GetMember />
+        <Link to="/shopping">
+          <Badge
+            color="primary"
+            content={user.car ? user.car.length : 0}
+            shape="circle"
+          >
+            <RxBackpack />
+          </Badge>
+        </Link>
         <Toggle />
-        {/* <SearchBar /> */}
         <UserActions />
       </NavbarContent>
     </Navbar>

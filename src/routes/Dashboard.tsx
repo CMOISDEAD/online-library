@@ -1,5 +1,5 @@
 import { Tab, Tabs } from "@nextui-org/react";
-import { Books } from "../components/dashboard/Books";
+import { Books } from "../components/dashboard/books/Books";
 import { Authors } from "../components/dashboard/Authors";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";

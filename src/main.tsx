@@ -11,6 +11,7 @@ import { Dashboard } from "./routes/Dashboard";
 import "./index.css";
 import { Billing } from "./routes/Billing";
 import { Profile } from "./routes/Profile";
+import { Shopping } from "./routes/Shopping";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         element: <Reader />,
       },
       {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
         path: "/dashboard",
         element: <Dashboard />,
       },
@@ -34,8 +39,8 @@ const router = createBrowserRouter([
         element: <Billing />,
       },
       {
-        path: "/profile",
-        element: <Profile />,
+        path: "/shopping",
+        element: <Shopping />,
       },
     ],
   },

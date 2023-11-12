@@ -34,6 +34,24 @@ export const addRecent = async (data: Props) => {
   }
 };
 
+export const addShopping = async (userId: string, bookId: string) => {
+  try {
+    const user = await instance.post("shopping", { userId, bookId });
+    return user.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const removeShopping = async (userId: string, bookId: string) => {
+  try {
+    const user = await instance.post("removeShopping", { userId, bookId });
+    return user.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const updatePhoto = async ({ id, photo }: any) => {
   const image = photo;
   try {
