@@ -1,7 +1,7 @@
 import axios from "axios";
 import useLibraryStore from "../store/store";
 
-const baseURL = "https://online-library-backend.vercel.app/auth";
+const baseURL = `${import.meta.env.VITE_API_URL}/auth`;
 
 const auth = axios.create({
   baseURL,

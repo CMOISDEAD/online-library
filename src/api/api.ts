@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://online-library-backend.vercel.app/api";
+const baseURL = `${import.meta.env.VITE_API_URL}/api`;
 
 const instance = axios.create({
   baseURL,
