@@ -9,8 +9,11 @@ export const useUser = () => {
 
   useEffect(() => {
     (async () => {
-      const staged = JSON.parse(window.localStorage.getItem("user") || "");
-      if (!staged) return navigate("/login");
+      const value = window.localStorage.getItem("user");
+      if (!value) return navigate("/login");
+      const staged = JSON.parse(value);
+      console.log(staged);
+      if (!staged || !staged.username || !staged.id) return navigate("/login");
       const user = await getUser(staged.id);
       useLibraryStore.setState({ user: user });
       window.localStorage.setItem("user", JSON.stringify(user));

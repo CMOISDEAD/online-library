@@ -6,8 +6,8 @@ import { useUser } from "../hooks/useUser";
 import { useData } from "../hooks/useData";
 
 export const Root = () => {
-  useData();
   useUser();
+  useData();
 
   return (
     <div className="flex h-full w-full">

@@ -42,7 +42,7 @@ export const Viewer = () => {
   return (
     <Document
       onLoadSuccess={handleSuccess}
-      file={`http://localhost:3000/pdf/${id}`}
+      file={`https://online-library-backend.vercel.app/${id}.pdf`}
       className="flex h-screen w-full gap-4"
       loading={<Loader />}
     >

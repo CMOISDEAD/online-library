@@ -9,7 +9,7 @@ interface Props {
 
 export const getUser = async (id: string) => {
   try {
-    const user = await instance.get(`user/${id}`);
+    const user = await instance.get(`/user/${id}`);
     return user.data;
   } catch (error) {
     console.error(error);
@@ -18,7 +18,7 @@ export const getUser = async (id: string) => {
 
 export const updateUser = async (data: any) => {
   try {
-    const user = await instance.put("updateUser", data);
+    const user = await instance.put("/updateUser", data);
     return user.data;
   } catch (error) {
     console.log(error);
@@ -27,7 +27,7 @@ export const updateUser = async (data: any) => {
 
 export const addRecent = async (data: Props) => {
   try {
-    const user = await instance.post("addRecent", data);
+    const user = await instance.post("/addRecent", data);
     return user.data;
   } catch (error) {
     console.log(error);
@@ -36,7 +36,7 @@ export const addRecent = async (data: Props) => {
 
 export const addShopping = async (userId: string, bookId: string) => {
   try {
-    const user = await instance.post("shopping", { userId, bookId });
+    const user = await instance.post("/shopping", { userId, bookId });
     return user.data;
   } catch (error) {
     console.log(error);
@@ -45,7 +45,7 @@ export const addShopping = async (userId: string, bookId: string) => {
 
 export const removeShopping = async (userId: string, bookId: string) => {
   try {
-    const user = await instance.post("removeShopping", { userId, bookId });
+    const user = await instance.post("/removeShopping", { userId, bookId });
     return user.data;
   } catch (error) {
     console.log(error);

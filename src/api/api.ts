@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const baseURL = import.meta.env.VITE_API_URL
-const baseURL = "http://localhost:3000/api/";
+const baseURL = "https://online-library-backend.vercel.app/api";
 
 const instance = axios.create({
   baseURL,
