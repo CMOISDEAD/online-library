@@ -42,7 +42,7 @@ export const Viewer = () => {
   return (
     <Document
       onLoadSuccess={handleSuccess}
-      file={`https://online-library-backend.vercel.app/${id}.pdf`}
+      file={`${import.meta.env.VITE_API_URL}/${id}.pdf`}
       className="flex h-screen w-full gap-4"
       loading={<Loader />}
     >
