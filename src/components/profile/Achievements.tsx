@@ -33,7 +33,7 @@ export const Achievements = () => {
       <div className="flex gap-4">
         <div className="grid grid-flow-row grid-cols-2 gap-2">
           {data.map(({ title, description }, i: number) => (
-            <Tooltip content={description} placement="bottom">
+            <Tooltip content={description} placement="bottom" key={i}>
               <Chip color="primary" variant="dot" className="cursor-pointer">
                 {title}
               </Chip>

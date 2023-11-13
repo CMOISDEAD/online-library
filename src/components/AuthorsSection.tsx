@@ -1,27 +1,8 @@
-// import { useEffect } from "react";
-// import useLibraryStore from "../store/store";
-// import { getAllAuthors } from "../api/author";
 import { Loader } from "./reader/Loader";
 import { authors } from "../utils/authors";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Image,
-} from "@nextui-org/react";
+import { Card, CardFooter, Image } from "@nextui-org/react";
 
 export const AuthorsSection = () => {
-  // const authors = useLibraryStore((state) => state.authors);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const data = await getAllAuthors();
-  //     useLibraryStore.setState({ authors: data });
-  //   })();
-  // }, []);
-
   return (
     <div>
       <h1 className="text-3xl font-bold">Authors Section</h1>

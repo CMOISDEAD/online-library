@@ -1,5 +1,4 @@
-import { Input, Kbd } from "@nextui-org/react";
-import { PiHandEye } from "react-icons/pi";
+import { Kbd } from "@nextui-org/react";
 
 export const SearchBar = () => {
   return (

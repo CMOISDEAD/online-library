@@ -1,4 +1,4 @@
-import { KBarProvider, useKBar } from "kbar";
+import { KBarProvider } from "kbar";
 import { CommandMenu } from "./CommandMenu";
 import { useTheme } from "next-themes";
 
@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const CommandProvider = ({ children }: Props) => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
 
   const actions = [
     {
