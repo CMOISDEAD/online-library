@@ -1,6 +1,7 @@
 import axios from "axios";
 import instance from "./api";
 import useLibraryStore from "../store/store";
+import { refresh } from "../utils/refresh";
 
 interface Props {
   userId: string;
@@ -75,6 +76,7 @@ export const updatePhoto = async ({ id, photo }: any) => {
     const user = await instance.post("/updatePhoto", { id, photo: data.url });
     window.localStorage.setItem("user", JSON.stringify(user.data));
     useLibraryStore.setState({ user: user.data });
+    await refresh();
   } catch (error) {
     console.error(error);
   }

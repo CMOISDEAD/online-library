@@ -25,10 +25,10 @@ export const Profile = () => {
   }, []);
 
   return (
-    <>
-      <div className="flex flex-col gap-4">
-        <div className="flex justify-between gap-4">
-          <div className="flex justify-between gap-10">
+    <div className="flex h-full flex-col gap-4">
+      <div className="flex justify-between gap-4">
+        <div className="flex justify-between gap-10">
+          <div className="hidden md:block">
             <Tooltip
               content="Select profile image"
               placement="bottom"
@@ -45,28 +45,28 @@ export const Profile = () => {
                 onClick={onOpen}
               />
             </Tooltip>
-            <UserInfo />
           </div>
-          <Card className="w-1/4">
-            <CardHeader className="text-xl font-bold">Friends</CardHeader>
-            <CardBody>
-              <div className="mt-5">
-                <p className="text-lg text-gray-500">
-                  You have no friends yet :(
-                </p>
-              </div>
-            </CardBody>
-          </Card>
+          <UserInfo />
         </div>
-        <div className="flex">
-          <div className="flex flex-grow flex-col gap-4">
-            <RecentsSection />
-            <FavoriteSection />
-          </div>
-          <BillingHistory />
+        <Card className="hidden w-1/4 lg:block">
+          <CardHeader className="text-xl font-bold">Friends</CardHeader>
+          <CardBody>
+            <div className="mt-5">
+              <p className="text-lg text-gray-500">
+                You have no friends yet :(
+              </p>
+            </div>
+          </CardBody>
+        </Card>
+      </div>
+      <div className="flex flex-col justify-between gap-4 lg:flex-row">
+        <div className="flex flex-grow flex-col gap-4">
+          <RecentsSection />
+          <FavoriteSection />
         </div>
+        <BillingHistory />
       </div>
       <Picture isOpen={isOpen} onOpenChange={onOpenChange} />
-    </>
+    </div>
   );
 };

@@ -14,7 +14,7 @@ export const BuyCard = () => {
 
   return (
     <>
-      <Card className="sticky top-0 w-1/4">
+      <Card className="sticky top-0 w-full md:w-1/4">
         <CardHeader>
           <h2 className="text-2xl font-bold">Total</h2>
         </CardHeader>

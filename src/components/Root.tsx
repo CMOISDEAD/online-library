@@ -15,9 +15,9 @@ export const Root = () => {
     <div className="flex h-full w-full">
       <Sidebar />
       {user.id && (
-        <ScrollShadow className="container mx-auto">
+        <ScrollShadow className="container mx-auto overflow-hidden">
           <Navigation />
-          <div className="p-5">
+          <div className="px-1 py-2">
             <Outlet />
           </div>
         </ScrollShadow>

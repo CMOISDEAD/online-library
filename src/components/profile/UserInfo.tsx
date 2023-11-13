@@ -6,7 +6,7 @@ export const UserInfo = () => {
   const user = useLibraryStore((state) => state.user);
 
   return (
-    <div className="flex flex-grow flex-col gap-4">
+    <div className="flex flex-grow flex-col gap-4 px-5 md:px-0">
       <h1 className="flex content-center items-center gap-2 font-bold">
         {user.username}
         <Chip color={user.membership ? "primary" : "danger"} variant="shadow">

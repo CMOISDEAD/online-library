@@ -28,11 +28,11 @@ export const Shopping = () => {
         </Chip>
       </div>
       {user.car.length ? (
-        <div className="mt-8 flex items-start justify-between gap-4">
-          <div className="flex w-3/4 flex-col gap-4">
+        <div className="mt-8 flex w-full flex-col items-start justify-between gap-4 md:flex-row">
+          <BuyCard />
+          <div className="flex w-full flex-col gap-4 md:w-3/4">
             <ShopList handleRemove={handleRemove} />
           </div>
-          <BuyCard />
         </div>
       ) : (
         <p className="text-lg text-gray-500">

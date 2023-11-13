@@ -15,8 +15,8 @@ export const Dashboard = () => {
   }, []);
 
   return (
-    <div>
-      <Tabs color="primary" variant="bordered">
+    <div className="w-full">
+      <Tabs color="primary">
         <Tab key="books" title="Books">
           <Books />
         </Tab>

@@ -6,6 +6,7 @@ import {
   PiBookmarkSimple,
 } from "react-icons/pi";
 import useLibraryStore from "../store/store";
+
 export const Sidebar = () => {
   const user = useLibraryStore((state) => state.user);
 

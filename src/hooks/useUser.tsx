@@ -12,7 +12,6 @@ export const useUser = () => {
       const value = window.localStorage.getItem("user");
       if (!value) return navigate("/login");
       const staged = JSON.parse(value);
-      console.log(staged);
       if (!staged || !staged.username || !staged.id) return navigate("/login");
       const user = await getUser(staged.id);
       useLibraryStore.setState({ user: user });
