@@ -51,8 +51,8 @@ export const Toc = ({ pdf, setPdf }: any) => {
       <Card
         radius="md"
         isBlurred
-        className={`max-w-md overflow-y-auto overflow-x-hidden border border-divider ${
-          toggle ? "block" : "hidden"
+        className={`hidden max-w-md overflow-y-auto overflow-x-hidden border border-divider ${
+          toggle ? "lg:block" : "hidden"
         }`}
         isPressable
       >

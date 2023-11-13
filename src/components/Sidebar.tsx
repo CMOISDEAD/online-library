@@ -11,7 +11,7 @@ export const Sidebar = () => {
   const user = useLibraryStore((state) => state.user);
 
   return (
-    <div className="sticky top-0 flex h-screen w-12 flex-col content-center items-center justify-between gap-4 overflow-y-auto border-r border-divider bg-background py-5">
+    <div className="sticky top-0 hidden h-screen w-12 flex-col content-center items-center justify-between gap-4 overflow-y-auto border-r border-divider bg-background py-5 sm:flex">
       <div className="flex flex-col content-center items-center justify-center gap-4">
         <NavLink
           to="/"
@@ -41,6 +41,7 @@ export const Sidebar = () => {
                 isActive ? "bg-primary/80" : "rounded p-2 transition-colors "
               } rounded p-2 transition-colors hover:cursor-pointer hover:bg-focus`
             }
+            aria-disabled="true"
           >
             <PiLightning />
           </NavLink>

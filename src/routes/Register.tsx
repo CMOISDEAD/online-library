@@ -57,7 +57,7 @@ export const Register = () => {
       <div className="hidden w-3/12 content-center items-center justify-center lg:flex">
         <Image
           isBlurred
-          className=" w-full object-cover"
+          className="h-full w-full object-cover"
           alt="Card background"
           src="https://images.unsplash.com/photo-1578301978162-7aae4d755744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNsYXNzaWMlMjBhcnR8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
         />
@@ -65,7 +65,7 @@ export const Register = () => {
       <Card
         isBlurred
         isFooterBlurred
-        className="h-5/6 w-1/2 border border-divider p-5"
+        className="m-1 border border-divider p-5 lg:w-1/2"
       >
         <CardHeader>
           <h3 className="text-3xl font-bold">

@@ -6,6 +6,7 @@ export const Zoom = ({ pdf, setPdf }: any) => {
   const handleZoomIn = () => {
     if (zoom === 200) return;
     setPdf({ ...pdf, zoom: zoom + 5 });
+    console.log(zoom);
   };
 
   const handleZoomReset = () => {
@@ -21,7 +22,7 @@ export const Zoom = ({ pdf, setPdf }: any) => {
     <Card
       isBlurred
       radius="md"
-      className="flex flex-row content-center items-center justify-between gap-4 border border-divider"
+      className="flex flex-row content-center items-center justify-between gap-4 border border-divider text-xs lg:text-medium"
     >
       <Button onClick={handleZoomOut} variant="light" radius="md">
         <PiMinus />
