@@ -39,7 +39,7 @@ export const BillingHistory = () => {
                   >
                     Active
                   </Chip>
-                  <p className="font-bold">{item.books.length} Books</p>
+                  <p className="font-bold">{item.books?.length} Books</p>
                   <p className="text-xs italic text-gray-500">
                     {moment(item.createdAt).fromNow()}
                   </p>
