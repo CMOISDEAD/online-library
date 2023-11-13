@@ -67,7 +67,7 @@ export const Login = () => {
       <Card
         isBlurred
         isFooterBlurred
-        className="h-5/6 w-1/2 border border-divider p-5"
+        className="m-1 h-5/6 border border-divider p-5 lg:w-1/2"
       >
         <CardHeader>
           <h3 className="text-3xl font-bold">

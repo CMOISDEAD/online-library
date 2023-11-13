@@ -7,7 +7,7 @@ export const Toolbar = ({ pdf, setPdf }: any) => {
   const [move, setMove] = useState(false);
 
   useEffect(() => {
-    let timer = 0;
+    let timer: number | any = 0;
     const handleMove = () => {
       setMove(true);
       clearTimeout(timer);

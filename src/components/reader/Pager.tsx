@@ -20,7 +20,7 @@ export const Pager = ({ pdf, setPdf }: PagerProps) => {
   return (
     <Card
       radius="md"
-      className="flex flex-row content-center items-center justify-between gap-4 border border-divider bg-background/80 backdrop-blur-sm"
+      className="flex flex-row content-center items-center justify-between gap-4 border border-divider bg-background/80 text-xs backdrop-blur-sm lg:text-medium"
     >
       <Button
         onClick={handlePrev}
@@ -30,7 +30,7 @@ export const Pager = ({ pdf, setPdf }: PagerProps) => {
       >
         <PiArrowLeft />
       </Button>
-      <span className="font-bold">
+      <span className="hidden font-bold md:block">
         {pdf.currentPage} / {pdf.pages}
       </span>
       <Button

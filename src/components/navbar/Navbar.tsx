@@ -14,6 +14,13 @@ export const Navigation = () => {
   return (
     <Navbar isBordered shouldHideOnScroll maxWidth="full">
       <NavbarContent justify="start">
+        <NavbarContent className="sm:hidden">
+          <NavbarItem>
+            <NavLink to="/">
+              <h1 className="text-2xl font-bold">Bookstore</h1>
+            </NavLink>
+          </NavbarItem>
+        </NavbarContent>
         <NavbarContent className="hidden gap-3 sm:flex" justify="start">
           {[
             { to: "/#books", label: "Top Books" },
