@@ -3,15 +3,17 @@ import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardBody,
+  CardHeader,
   Image,
   Tooltip,
   useDisclosure,
 } from "@nextui-org/react";
 import useLibraryStore from "../store/store";
 import { Picture } from "../components/profile/Picture";
-import { RecentsSection } from "../components/RecentsSection";
+import { RecentsSection } from "../components/profile/RecentsSection";
 import { UserInfo } from "../components/profile/UserInfo";
 import { FavoriteSection } from "../components/profile/FavoriteSection";
+import { BillingHistory } from "../components/profile/BillingHistory";
 
 export const Profile = () => {
   const user = useLibraryStore((state) => state.user);
@@ -46,8 +48,8 @@ export const Profile = () => {
             <UserInfo />
           </div>
           <Card className="w-1/4">
+            <CardHeader className="text-xl font-bold">Friends</CardHeader>
             <CardBody>
-              <h1 className="text-xl font-bold">Friends</h1>
               <div className="mt-5">
                 <p className="text-lg text-gray-500">
                   You have no friends yet :(
@@ -56,8 +58,13 @@ export const Profile = () => {
             </CardBody>
           </Card>
         </div>
-        <RecentsSection />
-        <FavoriteSection />
+        <div className="flex">
+          <div className="flex flex-grow flex-col gap-4">
+            <RecentsSection />
+            <FavoriteSection />
+          </div>
+          <BillingHistory />
+        </div>
       </div>
       <Picture isOpen={isOpen} onOpenChange={onOpenChange} />
     </>

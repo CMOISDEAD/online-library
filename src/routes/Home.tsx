@@ -1,10 +1,10 @@
 import { BooksSection } from "../components/BooksSection";
-import { RecentsSection } from "../components/RecentsSection";
+import { RecentSection } from "../components/RecentSection";
 
 function Home() {
   return (
     <div>
-      <RecentsSection />
+      <RecentSection />
       <BooksSection />
     </div>
   );

@@ -52,6 +52,15 @@ export const removeShopping = async (userId: string, bookId: string) => {
   }
 };
 
+export const clearShopping = async (userId: string) => {
+  try {
+    const user = await instance.delete(`/clearShopping/${userId}`);
+    return user.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const updatePhoto = async ({ id, photo }: any) => {
   const image = photo;
   try {

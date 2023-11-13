@@ -1,5 +1,5 @@
 import useLibraryStore from "../../store/store";
-import { BookList } from "../BooksList";
+import { BookCard } from "../BookCard";
 
 export const FavoriteSection = () => {
   const user = useLibraryStore((state) => state.user);
@@ -8,7 +8,11 @@ export const FavoriteSection = () => {
     <div>
       <h1 className="text-3xl font-bold capitalize">Your Favorites Books</h1>
       {user.favorites.length !== 0 ? (
-        <BookList books={user.favorites || []} />
+        <div className="my-5 grid grid-flow-row grid-cols-2 place-content-start place-items-start gap-4  md:grid-cols-3 lg:grid-cols-4">
+          {user.favorites.map((book: any, i: number) => (
+            <BookCard book={book} key={i} />
+          ))}
+        </div>
       ) : (
         <p className="text-center text-lg text-gray-500">
           You have no favorites books yet :(
