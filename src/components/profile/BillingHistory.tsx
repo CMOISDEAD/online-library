@@ -23,7 +23,7 @@ export const BillingHistory = () => {
   }, []);
 
   return (
-    <Card className="w-1/4">
+    <Card className="hidden w-1/4 lg:block">
       <CardHeader className="text-xl font-bold">Billing History</CardHeader>
       <CardBody>
         {history.length ? (

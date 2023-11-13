@@ -23,7 +23,7 @@ export const Category = () => {
   };
 
   return (
-    <Card isBlurred className="border border-divider">
+    <Card className="border border-divider">
       <CardHeader>
         <h1 className="text-3xl font-bold capitalize">Category</h1>
       </CardHeader>

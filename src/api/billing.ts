@@ -19,7 +19,6 @@ export const saveBilling = async (userId: string, data: any) => {
       userId,
       data,
     });
-    console.log(data);
     return response.data;
   } catch (error) {
     console.log(error);

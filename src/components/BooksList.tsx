@@ -6,7 +6,7 @@ type Props = {
 
 export const BookList = ({ books }: Props) => {
   return (
-    <div className="my-5 grid grid-flow-row grid-cols-2 place-content-start place-items-start gap-4  md:grid-cols-3 lg:grid-cols-5">
+    <div className="grid h-full w-full grid-flow-col grid-rows-1 gap-4 overflow-x-auto overflow-y-hidden p-5 md:grid-flow-row md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {books.map((book, i) => (
         <BookCard book={book} key={i} />
       ))}

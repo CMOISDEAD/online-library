@@ -25,7 +25,7 @@ export const BooksSection = () => {
   // HACK: improve this fetch handling
   return (
     <div>
-      <h1 className="text-3xl font-bold">Top Books of the moment</h1>
+      <h1 className="text-3xl font-bold capitalize">Top Books of the moment</h1>
       {!error ? (
         !loading ? (
           books.length > 0 ? (
