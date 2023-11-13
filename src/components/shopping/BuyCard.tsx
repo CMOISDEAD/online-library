@@ -1,32 +1,37 @@
-import { Card, CardBody, CardHeader, Button } from "@nextui-org/react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
 import useLibraryStore from "../../store/store";
-import { notify } from "../../utils/notify";
+import { BuyModal } from "./BuyModal";
 
 export const BuyCard = () => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const user = useLibraryStore((state) => state.user);
 
-  const handleBuy = async () => {
-    notify({
-      content: "Book bought",
-      type: "success",
-    });
-  };
-
   return (
-    <Card className="sticky top-0 w-1/4">
-      <CardHeader>
-        <h2 className="text-2xl font-bold">Total</h2>
-      </CardHeader>
-      <CardBody>
-        <p className="text-lg font-bold">Number of books: {user.car.length}</p>
-        <p className="text-lg font-bold">
-          Total price: $
-          {user.car.reduce((acc: any, curr: any) => acc + curr.price, 0)}
-        </p>
-        <Button color="primary" size="sm" className="mt-4" onPress={handleBuy}>
-          Buy
-        </Button>
-      </CardBody>
-    </Card>
+    <>
+      <Card className="sticky top-0 w-1/4">
+        <CardHeader>
+          <h2 className="text-2xl font-bold">Total</h2>
+        </CardHeader>
+        <CardBody>
+          <p className="text-lg font-bold">
+            Number of books: {user.car.length}
+          </p>
+          <p className="text-lg font-bold">
+            Total price: $
+            {user.car.reduce((acc: any, curr: any) => acc + curr.price, 0)}
+          </p>
+          <Button color="primary" size="sm" className="mt-4" onPress={onOpen}>
+            Buy
+          </Button>
+        </CardBody>
+      </Card>
+      <BuyModal isOpen={isOpen} onOpenChange={onOpenChange} />
+    </>
   );
 };
