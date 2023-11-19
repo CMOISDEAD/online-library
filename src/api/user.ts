@@ -35,6 +35,15 @@ export const addRecent = async (data: Props) => {
   }
 };
 
+export const addFavorite = async (userId: string, bookId: string) => {
+  try {
+    const user = await instance.post("/addFavorite", { userId, bookId });
+    return user.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const addShopping = async (userId: string, bookId: string) => {
   try {
     const user = await instance.post("/shopping", { userId, bookId });

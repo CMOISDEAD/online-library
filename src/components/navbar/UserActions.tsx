@@ -56,18 +56,12 @@ export const UserActions = () => {
           >
             My Profile
           </DropdownItem>
-          <DropdownItem key="analytics" textValue="Analytics">
-            Analytics
-          </DropdownItem>
           <DropdownItem
             key="configurations"
             textValue="Configurations"
             onClick={onSettingOpen}
           >
             Settings
-          </DropdownItem>
-          <DropdownItem key="help_and_feedback" textValue="Help & Feedback">
-            Help & Feedback
           </DropdownItem>
           <DropdownItem
             key="logout"

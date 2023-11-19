@@ -54,6 +54,7 @@ export const Setting = ({ isOpen, onOpenChange }: any) => {
                 isSelected={isAdmin}
                 onValueChange={setIsAdmin}
                 value={user.role === "admin" ? "true" : "false"}
+                isDisabled={true}
               >
                 Toggle Admin
               </Switch>

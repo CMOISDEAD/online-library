@@ -25,37 +25,43 @@ export const BillingHistory = () => {
   return (
     <Card className="hidden w-1/4 lg:block">
       <CardHeader className="text-xl font-bold">Billing History</CardHeader>
-      <CardBody>
+      <CardBody className="sticky top-0">
         {history && history?.length ? (
-          history.map((item: any, i: number) => (
-            <div key={i}>
-              <div>
-                <div className="flex content-center items-center gap-2">
-                  <Chip
-                    color="success"
-                    className="mr-3"
-                    variant="dot"
+          history
+            .sort(
+              (a: any, b: any) =>
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime(),
+            )
+            .map((item: any, i: number) => (
+              <div key={i}>
+                <div>
+                  <div className="flex content-center items-center gap-2">
+                    <Chip
+                      color="success"
+                      className="mr-3"
+                      variant="dot"
+                      size="sm"
+                    >
+                      Active
+                    </Chip>
+                    <p className="font-bold">{item.books?.length} Books</p>
+                    <p className="text-xs italic text-gray-500">
+                      {moment(item.createdAt).fromNow()}
+                    </p>
+                  </div>
+                  <Button
+                    className="mt-3 justify-between"
+                    variant="bordered"
                     size="sm"
+                    fullWidth
                   >
-                    Active
-                  </Chip>
-                  <p className="font-bold">{item.books?.length} Books</p>
-                  <p className="text-xs italic text-gray-500">
-                    {moment(item.createdAt).fromNow()}
-                  </p>
+                    Details
+                  </Button>
                 </div>
-                <Button
-                  className="mt-3 justify-between"
-                  variant="bordered"
-                  size="sm"
-                  fullWidth
-                >
-                  Details
-                </Button>
+                <Divider className="my-3" />
               </div>
-              <Divider className="my-3" />
-            </div>
-          ))
+            ))
         ) : (
           <div className="mt-5">
             <p className="text-lg text-gray-500">

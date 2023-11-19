@@ -43,11 +43,11 @@ export const Toc = ({ pdf, setPdf }: any) => {
           <h1 className="text-2xl font-bold">Content</h1>
           <div className="flex content-center items-center gap-2">
             <AddButton />
-            <Button variant="ghost" size="sm">
-              <a href="#reader">
+            <a href="#reader">
+              <Button variant="ghost" size="sm">
                 <PiArrowsOut className="text-xl" />
-              </a>
-            </Button>
+              </Button>
+            </a>
             <Button variant="ghost" size="sm" onClick={handleToggle}>
               <PiSidebar className="text-xl" />
             </Button>
