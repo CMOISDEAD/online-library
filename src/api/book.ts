@@ -11,6 +11,15 @@ export const getAllBooks = async () => {
   }
 };
 
+export const getBook = async (id: string) => {
+  try {
+    const res = await instance.get(`/book/${id}`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const saveBook = async (book: any) => {
   book = {
     ...book,

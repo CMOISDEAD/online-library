@@ -13,6 +13,10 @@ const style = {
   borderRadius: "10px",
 };
 
+export const promiseNotify = (promise: Promise<any>, messages: any) => {
+  return toast.promise(promise, messages, { style });
+};
+
 export const notify = ({ content, type }: Props) => {
   if (type === "error") {
     return toast.error(content, {

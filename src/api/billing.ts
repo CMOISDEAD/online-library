@@ -2,11 +2,7 @@ import instance from "./api";
 
 export const getBilling = async (userId: string) => {
   try {
-    const response = await instance.get("/billing", {
-      params: {
-        userId,
-      },
-    });
+    const response = await instance.get(`/billing/${userId}`);
     return response.data;
   } catch (error) {
     console.log(error);

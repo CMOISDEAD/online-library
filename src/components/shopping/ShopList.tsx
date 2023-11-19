@@ -32,6 +32,7 @@ export const ShopList = ({ handleRemove }: { handleRemove: Function }) => {
                       Number of Pages: {book.numberPages}
                     </p>
                     <p className="text-lg font-bold">Price: ${book.price}</p>
+                    <p className="text-lg font-bold">stock: {book.stock}</p>
                   </div>
                   <Button
                     size="sm"

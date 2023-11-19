@@ -26,7 +26,7 @@ export const BillingHistory = () => {
     <Card className="hidden w-1/4 lg:block">
       <CardHeader className="text-xl font-bold">Billing History</CardHeader>
       <CardBody>
-        {history.length ? (
+        {history && history?.length ? (
           history.map((item: any, i: number) => (
             <div key={i}>
               <div>
