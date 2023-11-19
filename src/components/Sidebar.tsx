@@ -24,7 +24,7 @@ export const Sidebar = () => {
           <PiBooks />
         </NavLink>
         <NavLink
-          to="/bookmarks"
+          to="/categories"
           className={({ isActive }) =>
             `${
               isActive ? "bg-primary/80" : "rounded p-2 transition-colors "

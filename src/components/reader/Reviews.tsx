@@ -11,7 +11,7 @@ import {
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { createReview, getReviews } from "../../api/Reviews";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import useLibraryStore from "../../store/store";
 import { RxThickArrowDown, RxThickArrowUp } from "react-icons/rx";
 import { notify } from "../../utils/notify";
@@ -70,16 +70,18 @@ export const Reviews = () => {
             <Card key={i} shadow="lg">
               <CardBody className="flex flex-row gap-4">
                 <Tooltip content={review.user.username}>
-                  <User
-                    name=""
-                    avatarProps={{
-                      src: review.user.photo,
-                      size: "lg",
-                      isBordered: true,
-                      color: "success",
-                    }}
-                    className="cursor-pointer"
-                  />
+                  <NavLink to={`/profile/${review.user.id}`}>
+                    <User
+                      name=""
+                      avatarProps={{
+                        src: review.user.photo,
+                        size: "lg",
+                        isBordered: true,
+                        color: "success",
+                      }}
+                      className="cursor-pointer"
+                    />
+                  </NavLink>
                 </Tooltip>
                 <div className="flex flex-col content-start items-start justify-start">
                   <h3 className="text-lg font-bold">{review.title}</h3>

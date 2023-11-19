@@ -1,10 +1,7 @@
 import { Chip } from "@nextui-org/react";
-import useLibraryStore from "../../store/store";
 import { Achievements } from "./Achievements";
 
-export const UserInfo = () => {
-  const user = useLibraryStore((state) => state.user);
-
+export const UserInfo = ({ user }: any) => {
   return (
     <div className="flex flex-grow flex-col gap-4 px-5 md:px-0">
       <h1 className="flex content-center items-center gap-2 font-bold">

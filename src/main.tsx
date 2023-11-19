@@ -12,6 +12,7 @@ import "./index.css";
 import { Billing } from "./routes/Billing";
 import { Profile } from "./routes/Profile";
 import { Shopping } from "./routes/Shopping";
+import { Categories } from "./routes/Categories";
 
 const router = createBrowserRouter([
   {
@@ -23,12 +24,20 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/categories",
+        element: <Categories />,
+      },
+      {
         path: "/reader/:id",
         element: <Reader />,
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: <Profile owner={true} />,
+      },
+      {
+        path: "/profile/:id",
+        element: <Profile owner={false} />,
       },
       {
         path: "/dashboard",
